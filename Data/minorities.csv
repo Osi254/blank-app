@@ -1,0 +1,6 @@
+client_id,system_id,company_no,minority_no,description,record_status,row_modified_by,row_modified_on,row_unique_id,company_id,minority_id
+6,1,1,"ASI  ",ASIAN,A,DBA,2010-04-02 11:52:21.023000,1,1,ASI
+6,1,1,"BLK  ",BLACK,A,DBA,2010-04-02 11:52:21.023000,2,1,BLK
+6,1,1,"HIS  ",HISPANIC,A,DBA,2010-04-02 11:52:21.023000,3,1,HIS
+6,1,1,"IND  ",NATIVE AMERICAN,A,DBA,2010-04-02 11:52:21.023000,4,1,IND
+6,6,1,NULL,WHITE,A,Marcin,2025-04-04 15:13:00.193333,5,1,NULL

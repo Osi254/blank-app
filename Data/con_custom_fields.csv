@@ -1,0 +1,26 @@
+RequestId,Name,IsRequired,CategoryId,IsAdminVisible,IsAdminEditable,IsUserVisible,IsUserEditable,FieldId,FieldType,PagingOffset,IsMultiSelected,DropdownId,DropdownOption,DropdownDisabled,DropdownDeleted
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Employment Start Date,1,374697,1,1,0,0,2207047,date,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,T-Shirt Size,1,374697,1,1,1,1,5297273,str,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Hoodie Size,1,374697,1,1,1,1,6498437,str,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Jacket Size,1,374697,1,1,1,1,6519375,str,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Birthday,1,374697,1,1,1,1,3680419,birthday,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,FoundationID,0,374697,1,1,0,0,11810369,number,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Title,0,374698,1,1,1,0,9821561,str,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Branch,0,374698,1,1,0,0,951765,str,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Direct manager,0,374698,1,1,0,0,951766,directManager,10,NULL,NULL,NULL,NULL,NULL
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,0,Office,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,1,Field,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,2,Foremen,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,3,Finisher,0,1
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,4,Excellence and Empowerment,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,5,Executive Team,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,6,Finishers,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,7,Insulators,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,8,Aeroseal Envelope | AeroBarrier,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,9,Wood Framers,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,10,Site Coordinators,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,11,Warehouse,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,12,Project Managers,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,13,USC Culture Club,0,0
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,14,hgfhgfhgf,0,1
+1b2cf142-5764-417f-aaaf-a75af33f21ad,Group Category,1,374698,1,1,0,0,1349529,dropdown,10,1,15,Carpenters,0,0

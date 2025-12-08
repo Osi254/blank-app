@@ -1,0 +1,6 @@
+client_id,system_id,company_no,payment_group_no,compute_sequence,pay_method,default_payment_group,compute_misc_deductions,compute_uni_ded_frg,record_status,row_modified_by,row_modified_on,row_unique_id,description,company_id,payment_group_id,fed_tax_option,fed_tax_fixed_rate,state_tax_option,state_tax_fixed_rate,local_tax_option,local_tax_fixed_rate
+6,1,1,3,3,E,N,N,N,A,AMALONEY,2025-04-29 12:47:21.437000,3,Bonus,1,3,Y,NULL,Y,NULL,Y,NULL
+6,1,1,1,1,E,Y,Y,Y,A,DBA,2011-06-30 15:30:59.783000,1,Default,1,1,Y,NULL,Y,NULL,Y,NULL
+6,1,1,2,2,E,N,N,N,A,PATTIW,2018-09-21 11:40:56.037000,2,Vacation,1,2,Y,NULL,Y,NULL,Y,NULL
+6,1,1,4,4,E,N,N,Y,A,PATTIW,2018-09-21 11:40:56.037000,4,Expense Reimbursement,1,4,Y,NULL,Y,NULL,Y,NULL
+6,1,1,5,5,C,N,N,N,A,PATTIW,2020-04-30 13:24:03.367000,5,Miscellaneous Check,1,5,Y,NULL,Y,NULL,Y,NULL

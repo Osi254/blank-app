@@ -1,0 +1,24 @@
+client_id,system_id,company_no,statement_category_no,description,cash_flow_type,balance_sheet_type,income_statement_type,ordinal_position,debit_credit,statement_category_id,record_status,row_modified_by,row_modified_on,row_unique_id
+6,1,1,"ACCEXP    ",Accrued Expenses,O,L,X,2000,C,ACCEXP,A,dba,2010-04-02 11:52:25,11
+6,1,1,"ACCPR     ",Accrued Payroll Items,O,L,X,2100,C,ACCPR,A,dba,2010-04-02 11:52:25,12
+6,1,1,"AP        ",Accounts Payable,O,L,X,1900,C,AP,A,dba,2010-04-02 11:52:25,10
+6,1,1,"AR        ",Accounts Receivable,O,A,X,1100,D,AR,A,dba,2010-04-02 11:52:25,2
+6,1,1,"BANK      ",Bank Accounts,C,A,X,1000,D,BANK,A,dba,2010-04-02 11:52:25,1
+6,1,1,"BLDLEASE  ",Bldgs/Leasehold Improvements,I,F,X,1500,D,BLDLEASE,A,dba,2010-04-02 11:52:25,6
+6,1,1,"CORPTAX   ",Accrued Corporate/Sales Taxes,O,L,X,1800,C,CORPTAX,A,dba,2010-04-02 11:52:25,9
+6,1,1,"CURASSET  ",Other Current Assets,O,A,X,1300,D,CURASSET,A,dba,2010-04-02 11:52:25,4
+6,1,1,"CURLIAB   ",Other Current Liabilities,O,L,X,2200,C,CURLIAB,A,dba,2010-04-02 11:52:25,13
+6,1,1,"DEPAMORT  ",Depreciation and Amortization,O,F,X,1400,C,DEPAMORT,A,dba,2010-04-02 11:52:25,5
+6,1,1,"DIRJOBEXP ",Direct Job Expenses,N,X,D,2700,D,DIRJOBEXP,A,dba,2010-04-02 11:52:25,18
+6,1,1,"EQ        ",Equipment,I,F,X,1600,D,EQ,A,dba,2010-04-02 11:52:25,7
+6,1,1,"FX        ",Other Fixed Assets,I,F,X,1700,D,FX,A,dba,2010-04-02 11:52:25,8
+6,1,1,"GAEXP     ",G&A Expenses,N,X,O,2800,D,GAEXP,A,dba,2010-04-02 11:52:25,19
+6,1,1,"INCEXP    ",Other Income/Expenses,N,X,E,2900,C,INCEXP,A,dba,2010-04-02 11:52:25,20
+6,1,1,"INCOME    ",Income,N,X,I,2600,C,INCOME,A,dba,2010-04-02 11:52:25,17
+6,1,1,"INDIREXP  ",Indirect Expenses,N,X,N,2750,D,INDIREXP,A,dba,2010-04-02 11:52:25,22
+6,1,1,"INV       ",Inventory,O,A,X,1200,D,INV,A,dba,2010-04-02 11:52:25,3
+6,1,1,"LINECRED  ",Line of Credit/Loans,F,T,X,2300,C,LINECRED,A,dba,2010-04-02 11:52:25,14
+6,1,1,"OTHASSET  ",Other Assets,O,O,X,1750,D,OTHASSET,A,dba,2010-04-02 11:52:25,23
+6,1,1,"RETERN    ",Retained Earnings,X,E,X,2550,C,RETERN,A,dba,2010-04-02 11:52:25,21
+6,1,1,"SHAREDIST ",Shareholder's Distribution,F,E,X,2400,C,SHAREDIST,A,dba,2010-04-02 11:52:25,15
+6,1,1,"TREASSTK  ",Treasury Stock Activity,F,E,X,2500,C,TREASSTK,A,dba,2010-04-02 11:52:25,16
