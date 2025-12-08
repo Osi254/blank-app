@@ -2,7 +2,7 @@
 import os
 import math
 import pandas as pd
-import pgeocode  # pip install pgeocode
+import pgeocode
 
 DATA_DIR = "data"
 JOB_SITES_FILE = os.path.join(DATA_DIR, "job_sites.csv")

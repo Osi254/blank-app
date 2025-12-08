@@ -1,5 +1,6 @@
 import streamlit as st
 from pathlib import Path
+from auth import get_role  # 👈 use the shared auth logic
 
 # --------------------------------------------------------------------
 # PAGE CONFIG
@@ -9,35 +10,6 @@ st.set_page_config(
     page_icon="🏗️",
     layout="wide",
 )
-
-# --------------------------------------------------------------------
-# SIMPLE PASSWORD (CHANGE THIS OR USE SECRETS)
-# --------------------------------------------------------------------
-DEFAULT_PASSWORD = "uscbuilds"  # change this
-
-def get_app_password() -> str:
-    try:
-        return st.secrets.get("app_password", DEFAULT_PASSWORD)
-    except Exception:
-        return DEFAULT_PASSWORD
-
-
-if "is_authenticated" not in st.session_state:
-    st.session_state.is_authenticated = False
-
-
-def check_password():
-    entered = st.session_state.get("password_input", "")
-    if not entered:
-        st.warning("Please enter a password.")
-        return
-    if entered == get_app_password():
-        st.session_state.is_authenticated = True
-        st.success("Login successful. You can now access all pages from the sidebar.")
-    else:
-        st.session_state.is_authenticated = False
-        st.error("Incorrect password. Please try again.")
-
 
 # --------------------------------------------------------------------
 # STYLES
@@ -56,7 +28,7 @@ st.markdown(
             margin-top: 4px;
             margin-bottom: 32px;
         }
-        .login-box {
+        .login-card {
             padding: 1.5rem;
             border-radius: 0.75rem;
             background-color: #111318;
@@ -88,110 +60,113 @@ with col_title:
         "<div class='sub-header'>Analyze attendance, attrition, and workforce patterns.</div>",
         unsafe_allow_html=True,
     )
+    
 
-st.markdown("### USC Builds Workforce App")
+
 
 # --------------------------------------------------------------------
-# WORKFLOW LINKS – ALL ICONS / ALL PAGES
-#   This assumes your pages are named:
-#   pages/About.py
-#   pages/Analysis.py
-#   pages/Employee_Punch.py
-#   pages/Feedback.py
-#   pages/Find_Jobs_Near_Me.py
-#   pages/HR_Job_Sites.py
-#   pages/Training_Path.py
+# LOGIN – CLEAN VERSION (NO LOCK ICON, NO MESSAGES)
+# --------------------------------------------------------------------
+login_col, _ = st.columns([2, 3])
+
+from auth import get_role  # still uses your EMPLOYEE_PASSWORD and HR_PASSWORD
+
+with login_col:
+ 
+
+    # get_role() handles checking EMPLOYEE_PASSWORD / HR_PASSWORD
+    role = get_role()
+
+    if role is None:
+        st.info("Enter password to continue.")  # Clean + professional, no HR warning
+    else:
+        st.success(f"✅ Logged in as **{role}**.")
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("---")
+
+# --------------------------------------------------------------------
+# WORKFLOW LINKS – ROLE-BASED
 # --------------------------------------------------------------------
 st.markdown("#### Choose a workflow below:")
 
-# Row 1: About, Analysis, Employee Punch, Feedback
-r1c1, r1c2, r1c3, r1c4 = st.columns(4)
-
-with r1c1:
-    st.page_link(
-        "pages/About.py",
-        label="📘 About",
-        help="Overview of the USC Builds Workforce Analytics Capstone app.",
+if role is None:
+    st.warning(
+        "Workflows are hidden until you log in. "
+        "Enter the correct password above to unlock navigation."
     )
+else:
+    # Role flags
+    is_hr = role == "HR"
+    is_employee = role == "Employee"
 
-with r1c2:
-    st.page_link(
-        "pages/Analysis.py",
-        label="📊 Workforce Analysis",
-        help="Attendance, attrition, and workforce KPIs.",
-    )
+    # HR gets everything, Employee gets a subset
+    # Row 1
+    r1c1, r1c2, r1c3, r1c4 = st.columns(4)
 
-with r1c3:
-    st.page_link(
-        "pages/Employee_Punch.py",
-        label="⏱️ Employee Punch",
-        help="Clock-in and clock-out module for workers.",
-    )
-
-with r1c4:
-    st.page_link(
-        "pages/Feedback.py",
-        label="📝 Feedback",
-        help="Capture qualitative feedback from employees and supervisors.",
-    )
-
-st.write("")  # spacer
-
-# Row 2: Find Jobs Near Me, HR Job Sites, Training Path
-r2c1, r2c2, r2c3, r2c4 = st.columns(4)
-
-with r2c1:
-    st.page_link(
-        "pages/Find_Jobs_Near_Me.py",
-        label="📍 Find Jobs Near Me",
-        help="Search for nearby job sites using ZIP code and distance.",
-    )
-
-with r2c2:
-    st.page_link(
-        "pages/HR_Job_Sites.py",
-        label="🗂️ HR – Job Sites",
-        help="Manage and inspect construction job sites.",
-    )
-
-with r2c3:
-    st.page_link(
-        "pages/Training_Path.py",
-        label="🎓 Training Path",
-        help="Recommended training and career development paths.",
-    )
-
-with r2c4:
-    st.empty()  # keeps layout balanced
-
-st.write("")
-
-# --------------------------------------------------------------------
-# LOGIN
-# --------------------------------------------------------------------
-st.markdown("## 🔐 Login")
-
-with st.container():
-    st.markdown("<div class='login-box'>", unsafe_allow_html=True)
-
-    st.write("Enter password to unlock sensitive HR analytics pages.")
-
-    st.text_input(
-        "Enter password",
-        type="password",
-        key="password_input",
-        placeholder="••••••••",
-    )
-    st.button("Login", on_click=check_password)
-
-    if st.session_state.is_authenticated:
-        st.success("✅ Access granted. Use the left sidebar to switch pages.")
-    else:
-        st.info(
-            "Access is limited until you log in. Contact the capstone team if you need credentials."
+    with r1c1:
+        st.page_link(
+            "pages/About.py",
+            label="📘 About",
+            help="Overview of the USC Builds Workforce Analytics Capstone app.",
         )
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    with r1c2:
+        if is_hr:
+            st.page_link(
+                "pages/Analysis.py",
+                label="📊 Workforce Analysis",
+                help="Attendance, attrition, and workforce KPIs. (HR only)",
+            )
+        else:
+            st.write("📊 Workforce Analysis\n\n_(HR only)_")
+
+    with r1c3:
+        st.page_link(
+            "pages/Employee_Punch.py",
+            label="⏱️ Employee Punch",
+            help="Clock-in and clock-out module for workers.",
+        )
+
+    with r1c4:
+        st.page_link(
+            "pages/Feedback.py",
+            label="📝 Feedback",
+            help="Capture qualitative feedback from employees and supervisors.",
+        )
+
+    st.write("")
+
+    # Row 2
+    r2c1, r2c2, r2c3, r2c4 = st.columns(4)
+
+    with r2c1:
+        st.page_link(
+            "pages/Find_Jobs_Near_Me.py",
+            label="📍 Find Jobs Near Me",
+            help="Search for nearby job sites using ZIP code and distance.",
+        )
+
+    with r2c2:
+        if is_hr:
+            st.page_link(
+                "pages/HR_Job_Sites.py",
+                label="🗂️ HR – Job Sites",
+                help="Manage and inspect construction job sites. (HR only)",
+            )
+        else:
+            st.write("🗂️ HR – Job Sites\n\n_(HR only)_")
+
+    with r2c3:
+        st.page_link(
+            "pages/Training_Path.py",
+            label="🎓 Training Path",
+            help="Recommended training and career development paths.",
+        )
+
+    with r2c4:
+        st.empty()
 
 # --------------------------------------------------------------------
 # FOOTER
@@ -200,6 +175,4 @@ st.markdown("---")
 st.caption(
     "USC Builds Workforce Analytics • Simon Business School Capstone Project • Built with Streamlit."
 )
-
-
-# streamlit run Home.py --server.address 0.0.0.0 --server.port 8501
+# 

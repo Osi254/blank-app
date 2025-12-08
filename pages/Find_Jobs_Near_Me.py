@@ -2,28 +2,18 @@
 import os
 import sys
 import streamlit as st
-from auth import get_role
+import pandas as pd
 
-role = get_role()
-if role is None:
-    st.stop()
+# -------------------------
+# REMOVE ALL AUTH / SECURITY
+# -------------------------
 
-st.title("🕒 Punch Clock")
-
-if role == "employee":
-    st.caption("Employee view")
-elif role == "hr":
-    st.caption("HR view (you can see extra options here)")
-    
 # Make the project root importable when running from /pages
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 if ROOT_DIR not in sys.path:
     sys.path.append(ROOT_DIR)
 
 from utils_locations import load_job_sites, geocode_zip, haversine
-
-import streamlit as st
-import pandas as pd
 
 st.set_page_config(page_title="Find Job Sites Near Me", layout="wide")
 
@@ -96,10 +86,9 @@ if search_btn:
 
                 st.dataframe(df_display)
 
-                # 2D map (top-down) of nearby sites + user location
+                # 2D map of nearby sites + user location
                 st.subheader("Map View (2D)")
 
-                # Build map data with user location + sites
                 map_df_sites = df_near[["latitude", "longitude", "site_name"]].copy()
                 map_df_sites.rename(
                     columns={"latitude": "lat", "longitude": "lon"}, inplace=True
@@ -119,7 +108,6 @@ if search_btn:
 
                 map_df = pd.concat([map_df_sites, map_user], ignore_index=True)
 
-                # Streamlit's st.map gives a 2D map view
                 st.map(map_df[["lat", "lon"]])
 
                 st.caption(

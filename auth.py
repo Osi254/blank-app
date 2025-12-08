@@ -6,7 +6,8 @@ def _get_secret(name: str, default: str) -> str:
     except Exception:
         return default
 
-EMPLOYEE_PASSWORD = _get_secret("EMPLOYEE_PASSWORD", "employee123")
+# 👉 Defaults: Employee = "123", HR = "hrsuperpass"
+EMPLOYEE_PASSWORD = _get_secret("EMPLOYEE_PASSWORD", "123")
 HR_PASSWORD = _get_secret("HR_PASSWORD", "hrsuperpass")
 
 
@@ -24,7 +25,7 @@ def get_role():
 
     st.markdown("### 🔐 Login")
 
-    # 🔑 Change the input key when user clicks "Try Again"
+    # Change the input key when user clicks "Try Again" so box resets
     input_key = f"password_input_{st.session_state.login_attempt}"
 
     password = st.text_input(
@@ -36,29 +37,27 @@ def get_role():
     # Login button
     if st.button("Login"):
         if password == EMPLOYEE_PASSWORD:
-            st.session_state["role"] = "employee"
+            st.session_state["role"] = "Employee"
             st.session_state.login_error = False
             st.rerun()
 
         elif password == HR_PASSWORD:
-            st.session_state["role"] = "hr"
+            st.session_state["role"] = "HR"
             st.session_state.login_error = False
             st.rerun()
 
         else:
-            # Wrong password → just flip the error flag
             st.session_state.login_error = True
 
     # If wrong password → show error + Try Again button
     if st.session_state.login_error:
         st.error("❌ Incorrect password")
 
-        # This button appears under the message
         if st.button("🔄 Try Again"):
-            # Increment attempt so the text_input gets a NEW key → empty box
             st.session_state.login_attempt += 1
             st.session_state.login_error = False
             st.rerun()
 
     return None
+
 

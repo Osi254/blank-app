@@ -15,8 +15,7 @@ st.title("🎓 Career Path Simulator")
 
 st.write(
     """
-    Choose an employee’s **current job** and **target job**, run a **Quick Skill Check**,  
-    and see the recommended **training strategy** (Fast vs Safe).
+    Run a **Quick Skill Check**and see the recommended **Training Strategy** .
     """
 )
 

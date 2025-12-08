@@ -7,8 +7,6 @@ role = get_role()
 if role is None:
     st.stop()
 
-st.title("🕒 Punch Clock")
-
 if role == "employee":
     st.caption("Employee view")
 elif role == "hr":
