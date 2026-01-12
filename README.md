@@ -1,11 +1,52 @@
-# 🏗️ USC Builds Workforce Analytics Dashboard
+# Workforce Attrition Intelligence
 
-A streamlined, modular Streamlit application designed for workforce analytics, attendance tracking, job-site insights, and predictive HR modeling.  
-Built as part of the **Simon Business School Capstone Project**.
+🚀 **Live Application:** https://capstoneuscb.streamlit.app
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-streamlit-app-link.com)
+## Overview
 
----
+**Workforce Attrition Intelligence** is an end-to-end people analytics project designed to help organizations understand employee turnover, identify high-risk workforce segments, and support data-driven retention decisions.
+
+The project combines analytical modeling with an interactive Streamlit dashboard, enabling both technical and non-technical stakeholders to explore workforce trends and attrition insights in real time.
+
+## Business Context
+
+Employee attrition is costly and difficult to predict. Many organizations lack clear visibility into:
+
+- Why employees leave  
+- Which employee segments are most at risk  
+- How attrition varies across roles, tenure, and locations  
+
+This project addresses these challenges by translating workforce data into actionable insights for HR leaders, managers, and executives.
+
+## Analytical Approach
+
+- Data cleaning and feature engineering  
+- Exploratory analysis of workforce composition and attrition trends  
+- Employee segmentation to identify high-risk groups  
+- Development of an interactive Streamlit application for insight exploration  
+
+## Key Insights
+
+- Attrition rates vary significantly by employee type, tenure, and location  
+- Certain workforce segments consistently exhibit higher attrition risk  
+- Segmentation enables more targeted and proactive retention strategies  
+- Interactive dashboards improve accessibility for non-technical decision-makers  
+
+## Tools & Technologies
+
+- Python  
+- Pandas, NumPy  
+- Streamlit  
+- Jupyter Notebook  
+- Data visualization libraries  
+
+## Repository Structure
+├── attrition_analysis.ipynb # Data analysis and modeling
+├── capstone_presentation.pptx # Final presentation
+├── capstone_report.pdf # Detailed analytical report
+├── executive_summary.pdf # Executive-level summary
+├── market_research_analysis.pdf # Market and competitive context
+
 
 ## 🚀 How to run it on your own machine
 
